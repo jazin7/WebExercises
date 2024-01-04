@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!---<link rel="stylesheet" href="style.css"> -->
+    <title>Eine CSS Beispielseite</title>
+
+    <style>
+
+        * {
+            font-size: 18pt;
+            font-family: sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        body {
+            background-color: #aaa;
+        }
+
+        body > * {
+            margin: 10px;
+        }
+
+        body > * > * {
+              border-style: dotted;
+        }
+
+        #titel{
+            color: blue;
+            padding: 40px;
+        }
+
+        main > div {
+            display: inline-block;
+        }
+
+        main > div:nth-child(1) {
+            width: 32px;
+            height: 32px;
+            background-color: #caa;
+        }
+        main > div:nth-child(2) {
+            width: 64px;
+            height: 64px;
+            background-color: #aca;
+        }
+        main > div:nth-child(3) {
+            width: 128px;
+            height: 128px;
+            background-color: #aac;
+        }
+
+        main > div:hover {
+            background-color: black;
+        }
+
+        .deco {
+            background-color: white;
+            color: black;
+            padding: 40px;
+        }
+
+    </style>
+
+
+</head>
+
+<body>
+
+    <header>
+        <p id="titel">TITEL</p>
+        <p>BESCHREIBUNG</p>
+    </header>
+
+    <main>
+        <div>
+            A
+        </div>
+
+        <div>
+            B
+        </div>
+
+        <div>
+            C
+        </div>
+    </main>
+
+    <footer class="deco">
+        Untere Zeile
+    </footer>
+
+</body>
+</html>

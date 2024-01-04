@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Zahlenratespiel</title>
+</head>
+<body>
+  <p>Erraten Sie die Zahl!</p>
+
+  <p>
+    Eingabe:
+    <input type="text" id="inputNumber">
+    <button id="checkInput">Prüfen</button>
+  </p>
+
+  <p>
+    Bisher geratene Zahlen:
+    <span id="message"></span>
+  </p>
+
+  <p>
+    Versuche:
+    <span id="tries"></span>
+  </p>
+
+  <p id="result"></p>
+
+</body>
+
+<script>
+  var triesNumber = 0;
+  var inserts = [];
+  var message = document.querySelector("#message");
+  var result = document.querySelector("#result");
+  var tries = document.querySelector("#tries");
+  var randomNumber = Math.floor(Math.random() * 100) + 1;
+
+  var inputNumber = document.querySelector("#inputNumber");
+  var checkInput = document.querySelector("#checkInput");
+
+  checkInput.addEventListener("click", compare);
+  function compare() {
+    try {
+      let userGuess = parseInt(inputNumber.value);
+      if (isNaN(userGuess) || userGuess < 1 || userGuess > 100) {
+        throw new Error("Bitte geben Sie eine Zahl zwischen 1 und 100 ein.");
+      }
+    triesNumber += 1;
+    tries.textContent = triesNumber;
+    if (triesNumber == 10){
+      tries.textContent = "Sie haben verloren, da Sie ihre 10 Versuche aufgebraucht haben! Klicken Sie erneut auf Prüfen um ein neues Spiel zu starten";
+    }
+    if (triesNumber > 10){
+      location.reload();
+    }
+    if (userGuess == randomNumber) {
+      result.textContent = userGuess + " ist richtig! Sie haben gewonnen. Klicken Sie auf prüfen um neu zu starten";
+      triesNumber = 10;
+
+
+    } else {
+      if (userGuess > randomNumber){
+        result.textContent = userGuess +" ist zu groß. Versuchen Sie es erneut.";
+      }
+      if (userGuess < randomNumber){
+        result.textContent = userGuess +" ist zu klein. Versuchen Sie es erneut.";
+      }
+      inserts.push(userGuess);
+      message.textContent = inserts;
+    }
+    } catch (error) {
+      result.textContent = error.message;
+    }
+  }
+</script>
+
+</html>

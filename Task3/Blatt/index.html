@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Zahlenratespiel</title>
+  <style>
+    .highlight {
+      color: red;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <p>Inbox</p>
+    <button id="emails">Emails laden</button>
+    <ul>
+
+    </ul>
+  </div>
+  <script>
+    var messages = [
+      {
+        "subject": "first message",
+        "flag": ""
+      },{
+        "subject": "second message",
+        "flag": ""
+      },{
+        "subject": "third message",
+        "flag": "seen"
+      },{
+        "subject": "spam message",
+        "flag": ""
+      },{
+        "subject": "another message",
+        "flag": "seen"
+      }
+    ];
+
+    var emailButton = document.querySelector("#emails");
+    emailButton.addEventListener("click", highlightUnread)
+
+    function highlightUnread() {
+      var list = document.querySelector("div ul");
+      messages.forEach(function (message) {
+        let listItem = document.createElement("li");
+        listItem.textContent = message.subject;
+        listItem.dataset.flag = message.flag;
+        list.appendChild(listItem);
+      });
+
+      var listItems = document.querySelectorAll("li");
+      listItems.forEach(function (listItem) {
+        if (listItem.dataset.flag != "seen") {
+          listItem.classList.add("highlight");
+        }
+      });
+    }
+
+  </script>
+</body>
+
