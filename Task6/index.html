@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="de">
+    <head>
+        <meta charset="utf-8">
+        <title>Klicker Game</title>
+        <link rel="stylesheet" href="main.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    </head>
+    <body>
+    <div id="app" v-bind:class="{darkmode : darkmodeActive}">
+    <div class="wrapper">
+                <h1 class="title">Crypto Miner 3.0</h1>
+                <div class="spielfeld">
+                    <p> {{cryptoMenge}} Crypto Coins</p>
+                    <p> Aktuelle Crypto Coins per Klick {{cryptoModifikator}}</p>
+                    <button v-on:click="addCrypto">Mine Crypto</button>
+                    <div v-for="upgrade in upgradeList">{{upgrade.number}}x {{upgrade.name}}</div>
+
+                </div>
+                <div class="upgrades">
+                    <button v-on:click="increaseModifier('botminer')">Bot Miner ({{botMinerKosten}})</button>
+                    <button v-on:click="increaseModifier('rtx3090')">RTX 3090 ({{rtx3090Kosten}})</button>
+                    <button v-on:click="increaseModifier('netzwerk')">Bot Netzwerk ({{botNetzwerkKosten}})</button>
+                    <button v-on:click="increaseModifier('serverraum')">Serverraum ({{serverraumKosten}})</button>
+                    <p>{{infotext}}</p>
+                </div>
+
+                <div class="options">
+                    <button v-on:click="toggleOptions">Options</button>
+                    <div v-if="options">
+                        <button @click="toggleLightmode">Lightmode</button>
+                        <button @click="toggleDarkmode">Darkmode</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <script src="main.js"></script>
+    </body>
+</html>

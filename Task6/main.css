@@ -1,0 +1,29 @@
+.darkmode{
+	background-color: black;
+	color: white;
+}
+
+.title{
+	grid-area: title;
+}
+
+.spielfeld{
+	grid-area: spielfeld;
+}
+
+.upgrades{
+	grid-area: upgrades
+}
+
+.options{
+	grid-area: options
+}
+
+.wrapper{
+	display: grid;
+	grid-gap: 20px;
+	grid-template-areas: 
+	"title title"
+	"spielfeld upgrades"
+	"options options";
+}
