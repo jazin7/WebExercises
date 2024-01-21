@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My Blog</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+ 	</head>
+	<body>
+		<div id="app">
+
+			<my-blog v-for="blogEntry in blogEntries" v-bind:blog="blogEntry"></my-blog>
+			<create-blog @commit-new-blog="addNewBlog"></create-blog>
+
+		</div>
+		<script src="myBlog.js"></script>
+	</body>
+</html>

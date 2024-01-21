@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>My To-Do-List</title>
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+		<style type="text/css">
+			.finished{
+				background-color: #80ff00;
+				border-style: solid;
+			}
+			.todo-list{
+				border-style: solid;
+			}
+		</style>
+ 	</head>
+	<body>
+		<div id="app">
+			<main-todo-list v-for="item in toDoItems" v-bind:items="item" @delete-todo="deleteToDoItem"></main-todo-list>
+			<todo-list-controller @commit-todo="addToDoItem"></todo-list-controller>
+		</div>
+		<script src="toDoList.js"></script>
+	</body>
+</html>
