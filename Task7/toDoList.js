@@ -40,12 +40,6 @@ var vm = new Vue ({
             title: "Beispiel-Titel",
             content: "Beispiel-content",
             deadline: "Beispiel-deadline"
-        },
-        {
-            id: 0,
-            title: "Beispiel-Titel2",
-            content: "Beispiel-content2",
-            deadline: "Beispiel-deadline2"
         }],
         idCounter:0,
     },
