@@ -1,0 +1,17 @@
+mixin Film(titel, datum, regie)
+    div.filmBorder
+        div.filmFont= titel
+        div.filmFont= datum
+        div.filmFont= regie
+
+mixin Music(titel, artist)
+    div.musicBorder
+        div.musicFont= titel
+        div.musicFont= artist
+
+div
+    each item in items
+        if item.datum
+            +Film(item.titel, item.datum, item.regie)
+        if item.artist
+            +Music(item.titel, item.artist)
